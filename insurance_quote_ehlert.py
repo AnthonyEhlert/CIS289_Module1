@@ -113,7 +113,7 @@ if __name__ == "__main__":
     #create dictionary to store driver's info
     driver_info = {"NAME": "", "AGE": 0, "COVERAGE": "", "COST": 0.0}
 
-    # call function to get name from user
+    # call function to get name from user.  Loop until valid input is received
     while True:
         try:
             driver_name = get_driver_name()
@@ -122,7 +122,7 @@ if __name__ == "__main__":
         except ValueError:
             print("Invalid Input!")
 
-    # call function to get age from user
+    # call function to get age from user.  Loop until valid input is received
     while True:
         try:
             driver_age = get_driver_age()
@@ -131,7 +131,7 @@ if __name__ == "__main__":
         except ValueError:
             print("Invalid Input!")
 
-    # call function to get desired coverage from user
+    # call function to get desired coverage from user.  Loop until valid input is received
     while True:
         try:
             driver_coverage = get_driver_coverage()
