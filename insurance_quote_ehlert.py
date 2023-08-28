@@ -12,15 +12,15 @@ def get_driver_name():
     This method prompt's the user for their Name
     :return: string containing driver's name
     """
+    # create set for name characters to use for validating username input
+    name_characters = set("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'-' '")
+
     # prompt user for name
-    while True:
-        # create set for name characters to use for validating username input
-        name_characters = set("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'-' '")
-        driver_name = input("Please Enter Your Name: ")
-        if not (name_characters.issuperset(driver_name)):
-            raise ValueError
-        else:
-            return driver_name
+    driver_name = input("Please Enter Your Name: ")
+    if not (name_characters.issuperset(driver_name)):
+        raise ValueError
+    else:
+        return driver_name
 
 def get_driver_age():
     """
@@ -28,13 +28,12 @@ def get_driver_age():
     :return: int containing driver's age
     """
     # prompt user for age and validate that input was an integer
-    while True:
-        driver_age = int(input("Please Enter Your Age: "))
-        if driver_age >= 16:
-            return driver_age
-        else:
-            #print("Invalid age! Age must be 16 or greater!")
-             raise ValueError
+    driver_age = int(input("Please Enter Your Age: "))
+    if driver_age >= 16:
+        return driver_age
+    else:
+        #print("Invalid age! Age must be 16 or greater!")
+         raise ValueError
 
 def get_driver_coverage():
     """
@@ -42,13 +41,12 @@ def get_driver_coverage():
     :return: string containing driver's desired coverage
     """
     # prompt user for coverage level and validate that input was correct
-    while True:
-        driver_coverage =  input("Please Enter Your Desired Coverage Level (State Minimum[SM], Liability[L], or Full Coverage[F]: ")
-        driver_coverage = driver_coverage.upper()
-        if driver_coverage.upper() != "SM" and driver_coverage.upper() != "L" and driver_coverage.upper() != "F":
-            raise ValueError
-        else:
-            return driver_coverage
+    driver_coverage =  input("Please Enter Your Desired Coverage Level (State Minimum[SM], Liability[L], or Full Coverage[F]: ")
+    driver_coverage = driver_coverage.upper()
+    if driver_coverage.upper() != "SM" and driver_coverage.upper() != "L" and driver_coverage.upper() != "F":
+        raise ValueError
+    else:
+        return driver_coverage
 
 def get_annual_cost(driver_info):
     """
@@ -110,7 +108,7 @@ def get_annual_cost(driver_info):
 if __name__ == "__main__":
     #create cost modifier values
     ACCIDENT_INC_RATE = 1.41
-    UPFRONT_DISC_RATE = .1
+    UPFRONT_DISC_RATE = .9
 
     #create dictionary to store driver's info
     driver_info = {"NAME": "", "AGE": 0, "COVERAGE": "", "COST": 0.0}
@@ -157,7 +155,7 @@ if __name__ == "__main__":
         else:
             print("Invalid response!")
 
-    # ask user if they would like to pay up front for a 10% discount and update dictionary if true
+    # ask user if they would like to pay up front for a 10% discount and update dictionary if true (COST * .9)
     while True:
         paying_upfront = input("Would you like to pay the total upfront to save 10%?")
         paying_upfront = paying_upfront.upper()
