@@ -5,8 +5,7 @@ Program: insurance_quote_tests.py
 Author: Tony Ehlert
 Date Created: 08/26/2023
 
-The purpose of this program is to get user input that used to calculate an insurance
-rate quote
+The purpose of this program is to test the functions contained in the insurance_quote_ehlert.py file
 """
 
 from insurance_quote_ehlert import get_annual_cost, get_driver_name, get_driver_age, get_driver_coverage
