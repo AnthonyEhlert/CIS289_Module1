@@ -22,16 +22,16 @@ class MyTestCase(unittest.TestCase):
                 get_driver_name()
 
     def test_get_driver_age_good_input(self):
-        with mock.patch('builtins.input', return_value = 16):
+        with mock.patch('builtins.input', return_value = "16"):
             assert get_driver_age() == 16
 
     def test_get_driver_age_under_16(self):
-        with mock.patch('builtins.input', return_value = 15):
+        with mock.patch('builtins.input', return_value = "15"):
             with self.assertRaises(ValueError):
                 get_driver_age()
 
     def test_get_driver_age_float_input(self):
-        with mock.patch('builtins.input', return_value = 1.6):
+        with mock.patch('builtins.input', return_value = "1.6"):
             with self.assertRaises(ValueError):
                 get_driver_age()
 
