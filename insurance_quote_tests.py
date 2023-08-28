@@ -51,6 +51,7 @@ class MyTestCase(unittest.TestCase):
     def test_get_driver_coverage_lower_f_input(self):
         with mock.patch('builtins.input', return_value = "f"):
             assert get_driver_coverage() == 'F'
+
     def test_get_driver_coverage_bad_input(self):
         with mock.patch('builtins.input', return_value = "Liability"):
             with self.assertRaises(ValueError):
